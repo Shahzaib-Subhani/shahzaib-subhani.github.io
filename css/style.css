@@ -679,10 +679,11 @@ h2{
 .skill-section .progress-block {
   margin-top: 30px;
 }
-.skill-section .progress-block h4 {
+.skill-section .progress-block li {
   color: #fff;
   font-size: 20px;
   margin-bottom: 12px;
+  list-style: circle;
 }
 .skill-section .progress-wrapper {
   margin-bottom: 24px;
@@ -2549,3 +2550,49 @@ body * {
   height: 40px;
   border: 1px solid #fd562a;
 } */
+
+.custom-skills .item-wrapper {
+  border: 1px solid #e0e0e0;
+  padding: 48px;
+  border-radius: 12px;
+  position: relative;
+  background: #fff;
+  transition: 0.3s;
+}
+.custom-skills .item-wrapper:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fd562a;
+  transition: 0.3s;
+  z-index: -1;
+  border-radius: 12px;
+}
+.custom-skills .item-wrapper:hover {
+  box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.1);
+  border-color: #fff;
+}
+.custom-skills .item-wrapper:hover:after {
+  transform: rotate(-10deg);
+}
+.custom-skills .icon-box {
+  font-size: 48px;
+  color: #fd562a;
+}
+.custom-skills h3 {
+  font-size: 28px;
+  margin-bottom: 18px;
+}
+.custom-skills .de-intro-1 {
+  position: absolute;
+  left: 5%;
+  top: 10%;
+}
+/* Dark Mode Styling */
+.dark-mode .custom-skills .item-wrapper {
+  background: #2f2f2f;
+  border: none;
+}
