@@ -1,0 +1,27 @@
+{
+  "name": "new",
+  "version": "1.0.0",
+  "description": "Shahzaib Subhani Portfolio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "author": "Shahzaib Subhani",
+  "license": "ISC",
+  "browsersList": "> 2% , not dead",
+  "devDependencies": {
+    "@babel/cli": "^7.25.9",
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "babel-loader": "^9.2.1",
+    "emailjs-com": "^3.2.0",
+    "terser-webpack-plugin": "^5.3.10",
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "jquery": "^3.6.0"
+  }
+}
