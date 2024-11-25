@@ -1,25 +1,25 @@
-// import { gsap } from "gsap";
+import { gsap } from "gsap";
 import $ from "jquery/dist/jquery.min";
 import "./plugins";
 
-// function page_intro() {
-//     var e = gsap.timeline();
-//     e.to([".loading-screen h3", ".loading-screen .line-frame"], {
-//       ease: "power4.inOut",
-//       duration: 1,
-//       opacity: 1,
-//       y: "100%",
-//     }),
-//       e.to(".loading-screen", {
-//         ease: "expo.out",
-//         duration: 1.4,
-//         y: "100%",
-//         delay: 0.15,
-//       }),
-//       e.set(".loading-screen", {
-//         zIndex: -100,
-//       });
-//   }
+function page_intro() {
+    var e = gsap.timeline();
+    e.to([".loading-screen h3", ".loading-screen .line-frame"], {
+      ease: "power4.inOut",
+      duration: 1,
+      opacity: 1,
+      y: "100%",
+    }),
+      e.to(".loading-screen", {
+        ease: "expo.out",
+        duration: 1.4,
+        y: "100%",
+        delay: 0.15,
+      }),
+      e.set(".loading-screen", {
+        zIndex: -100,
+      });
+  }
 (function () {
   var wind = $(window);
 
@@ -58,16 +58,6 @@ import "./plugins";
       $(this).find(".dropdown-side").removeClass("show");
     }
   );
-
-  $(".navbar .search-form").on("click", ".search-icon", function () {
-    $(".navbar .search-form").toggleClass("open");
-
-    if ($(".navbar .search-form").hasClass("open")) {
-      $(".search-form .close-search").slideDown();
-    } else {
-      $(".search-form .close-search").slideUp();
-    }
-  });
 
   $(".navbar").on("click", ".navbar-toggler", function () {
     $(".navbar .navbar-collapse").toggleClass("show");
@@ -305,7 +295,83 @@ $(function () {
   }
 });
 
-const loadWebsites = () => {
+const loadSkills = () => {
+  const skills = [
+    {
+      name: "Laravel",
+      imageSrc: "assets/imgs/avif/skills/laravel.avif",
+      imageError: "assets/imgs/skills/laravel.png",
+      alt: "laravel",
+    },
+    {
+      name: "PHP",
+      imageSrc: "assets/imgs/avif/skills/php.avif",
+      imageError: "assets/imgs/skills/php.png",
+      alt: "php",
+    },
+    {
+      name: "MySQL",
+      imageSrc: "assets/imgs/avif/skills/mysql.avif",
+      imageError: "assets/imgs/skills/mysql.png",
+      alt: "mysql",
+    },
+    {
+      name: "JavaScript (Advance)",
+      imageSrc: "assets/imgs/avif/skills/javascript.avif",
+      imageError: "assets/imgs/skills/javascript.png",
+      alt: "javascript",
+    },
+    {
+      name: "jQuery",
+      imageSrc: "assets/imgs/avif/skills/jquery.avif",
+      imageError: "assets/imgs/skills/jquery.png",
+      alt: "jquery",
+    },
+    {
+      name: "Firebase",
+      imageSrc: "assets/imgs/avif/skills/firebase.avif",
+      imageError: "assets/imgs/skills/firebase.png",
+      alt: "firebase",
+    },
+    {
+      name: "TailWind CSS",
+      imageSrc: "assets/imgs/avif/skills/tailwind.avif",
+      imageError: "assets/imgs/skills/tailwind.png",
+      alt: "tailwind",
+    },
+    {
+      name: "Bootstrap",
+      imageSrc: "assets/imgs/avif/skills/bootstrap.avif",
+      imageError: "assets/imgs/skills/bootstrap.png",
+      alt: "bootstrap",
+    },
+  ];
+
+  const skillsGrid = document.getElementById("skills-grid");
+
+  skills.forEach((skills) => {
+    const gridItem = document.createElement("div");
+    gridItem.classList.add("col-md-6");
+
+    gridItem.innerHTML = `
+       <div class="item mb-30">
+          <div class="d-flex align-items-center mb-30">
+            <div class="mr-30">
+              <div class="img icon-img-40">
+                <img src="${skills.imageSrc}" onerror="this.onerror=null; this.src='${skills.imageError}';" alt="${skills.alt}" loading="lazy"/>
+              </div>
+            </div>
+            <div>
+              <h6 class="fz-18">${skills.name}</h6>
+            </div>
+          </div>
+        </div>`;
+
+    skillsGrid.appendChild(gridItem);
+  });
+};
+
+const loadWebsites = async () => {
   const websites = [
     {
       category: "ZAP Power",
@@ -413,8 +479,7 @@ const loadWebsites = () => {
     },
     {
       category: "Punjab Horse Riding Club",
-      title:
-        "Horse Event Management System",
+      title: "Horse Event Management System",
       imageSrc: "assets/imgs/avif/projects/horse.avif",
       imageError: "assets/imgs/portfolio/horse.png",
       alt: "horse",
@@ -447,7 +512,7 @@ const loadWebsites = () => {
     gridItem.innerHTML = `
         <div class="item mt-50">
           <div class="img">
-            <a href="${website.href}">
+            <a href="${website.href}" class="portfolio-cursor">
               <img src="${website.imageSrc}" onerror="this.onerror=null; this.src='${website.imageError}';" alt="${website.alt}" loading="lazy" class="radius-8"/>
             </a>  
           </div>
@@ -455,13 +520,16 @@ const loadWebsites = () => {
             <div>
               <span class="tag">${website.title}</span>
               <h6 class="line-height-1">
-                <a href="${website.href}">${website.category}</a>
+                <a href="${website.href}" class="portfolio-cursor">${website.category}</a>
               </h6>
             </div>
           </div>
         </div>`;
 
     portfolioGrid.appendChild(gridItem);
+  });
+  return new Promise((resolve) => {
+    resolve(true);
   });
 };
 
@@ -516,29 +584,40 @@ const contactSubmit = () => {
       hideMessage(1800);
     });
 
-    const resetFormFields = () => {
-      document.getElementById("inputName").value = "";
-      document.getElementById("inputEmail").value = "";
-      document.getElementById("inputSubject").value = "";
-      document.getElementById("inputMessage").value = "";
-    };
-  
-    const setMessage = (messageType, message) => {
-      const formMessages = document.querySelector(".form-message p");
-      formMessages.classList.remove("text-success", "text-danger");
-      formMessages.classList.add(messageType);
-      formMessages.textContent = message;
-    };
-  
-    const hideMessage = (delay) => {
-      setTimeout(() => {
-        document.querySelector(".form-message p").style.display = "none";
-      }, delay);
-    };
+  const resetFormFields = () => {
+    document.getElementById("inputName").value = "";
+    document.getElementById("inputEmail").value = "";
+    document.getElementById("inputSubject").value = "";
+    document.getElementById("inputMessage").value = "";
+  };
+
+  const setMessage = (messageType, message) => {
+    const formMessages = document.querySelector(".form-message p");
+    formMessages.classList.remove("text-success", "text-danger");
+    formMessages.classList.add(messageType);
+    formMessages.textContent = message;
+  };
+
+  const hideMessage = (delay) => {
+    setTimeout(() => {
+      document.querySelector(".form-message p").style.display = "none";
+    }, delay);
+  };
 };
 
-// window.addEventListener("load", page_intro);
-document.addEventListener("DOMContentLoaded", loadWebsites);
+window.addEventListener("load", page_intro);
+document.addEventListener("DOMContentLoaded", loadSkills);
+document.addEventListener("DOMContentLoaded", async () => {
+  await loadWebsites();
+  $(".portfolio-cursor").hover(
+    function () {
+      $(".cursor").addClass("cursor-active");
+    },
+    function () {
+      $(".cursor").removeClass("cursor-active");
+    }
+  );
+});
 
 const formButton = document.getElementById("contact-button");
 formButton.addEventListener("click", contactSubmit);
