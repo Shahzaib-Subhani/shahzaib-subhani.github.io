@@ -310,6 +310,18 @@ const loadSkills = () => {
       alt: "php",
     },
     {
+      name: "Vue",
+      imageSrc: "assets/imgs/skills/vue.png",
+      imageError: "assets/imgs/skills/vue.png",
+      alt: "vue",
+    },
+    {
+      name: "React",
+      imageSrc: "assets/imgs/skills/react.png",
+      imageError: "assets/imgs/skills/react.png",
+      alt: "react",
+    },
+    {
       name: "MySQL",
       imageSrc: "assets/imgs/avif/skills/mysql.avif",
       imageError: "assets/imgs/skills/mysql.png",
@@ -344,6 +356,18 @@ const loadSkills = () => {
       imageSrc: "assets/imgs/avif/skills/bootstrap.avif",
       imageError: "assets/imgs/skills/bootstrap.png",
       alt: "bootstrap",
+    },
+    {
+      name: "Postman",
+      imageSrc: "assets/imgs/skills/postman.png",
+      imageError: "assets/imgs/skills/postman.png",
+      alt: "postman",
+    },
+    {
+      name: "GitHub",
+      imageSrc: "assets/imgs/skills/github.png",
+      imageError: "assets/imgs/skills/github.png",
+      alt: "github",
     },
   ];
 
