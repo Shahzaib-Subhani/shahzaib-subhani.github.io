@@ -310,16 +310,34 @@ const loadSkills = () => {
       alt: "php",
     },
     {
-      name: "Vue",
-      imageSrc: "assets/imgs/skills/vue.png",
-      imageError: "assets/imgs/skills/vue.png",
-      alt: "vue",
-    },
-    {
       name: "React",
       imageSrc: "assets/imgs/skills/react.png",
       imageError: "assets/imgs/skills/react.png",
       alt: "react",
+    },
+    {
+      name: "NodeJS",
+      imageSrc: "assets/imgs/skills/nodejs.png",
+      imageError: "assets/imgs/skills/nodejs.png",
+      alt: "nodejs",
+    },
+    {
+      name: "ExpressJs",
+      imageSrc: "assets/imgs/skills/express.png",
+      imageError: "assets/imgs/skills/express.png",
+      alt: "expressJs",
+    },
+    {
+      name: "mongoDB",
+      imageSrc: "assets/imgs/skills/mongoDb.png",
+      imageError: "assets/imgs/skills/mongoDb.png",
+      alt: "mongoDB",
+    },
+    {
+      name: "Vue",
+      imageSrc: "assets/imgs/skills/vue.png",
+      imageError: "assets/imgs/skills/vue.png",
+      alt: "vue",
     },
     {
       name: "MySQL",
@@ -332,12 +350,6 @@ const loadSkills = () => {
       imageSrc: "assets/imgs/avif/skills/javascript.avif",
       imageError: "assets/imgs/skills/javascript.png",
       alt: "javascript",
-    },
-    {
-      name: "jQuery",
-      imageSrc: "assets/imgs/avif/skills/jquery.avif",
-      imageError: "assets/imgs/skills/jquery.png",
-      alt: "jquery",
     },
     {
       name: "Firebase",
