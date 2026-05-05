@@ -1,0 +1,26 @@
+/* Base styles and smooth scrolling */
+body {
+  background-color: #121216;
+  color: white;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Style for the select arrow in the contact form */
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23a1a1aa'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 10.99l3.71-3.76a.75.75 0 111.08 1.04l-4.25 4.3a.75.75 0 01-1.08 0l-4.25-4.3a.75.75 0 01.02-1.06z' clip-rule='evenodd' /%3E%3C/svg%3E");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em;
+  padding-right: 2.5rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Custom class for project detail modal hidden state */
+.modal {
+  transition: opacity 0.3s ease-in-out;
+}
