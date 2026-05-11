@@ -120,6 +120,7 @@ const modalTitle = document.getElementById("modal-title");
 const modalSubheading = document.getElementById("modal-subheading");
 const modalDetails = document.getElementById("modal-details");
 const modalImage = document.getElementById("modal-image");
+const modalLink = document.getElementById("project-link");
 
 function openModal(projectId) {
   const project = projectsData[projectId];
@@ -134,6 +135,7 @@ function openModal(projectId) {
   modalSubheading.textContent = project.tech;
   modalImage.src = project.image;
   modalImage.alt = project.title;
+  modalLink.href = project.image
 
   // Clear previous details and add new ones
   modalDetails.innerHTML = "";
