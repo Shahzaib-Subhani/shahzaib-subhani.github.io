@@ -1,46 +1,33 @@
 const skills = [
-  // Tier 1: Primary Stack & Architectural Ownership (Current Role)
   "Laravel",
   "PHP",
   "React.js",
-  "RESTful API Development", // Managed 60+ APIs [cite: 6, 22]
-  "MySQL", // Designed schemas for high-volume transactional data [cite: 7, 23]
-  "System Architecture", // Designed Zap Electric from scratch
-
-  // Tier 2: Specialized Integrations & High-Scale Operations
-  "Stripe (Payment Gateway)", // Managed full integration for subscription billing [cite: 6, 23]
-  "Google Maps API", // Real-time driver tracking and delivery management [cite: 23]
-  "Query Optimization", // Reduced page load time by 30% [cite: 29]
-  "Laravel 6 to 9 Migration", // Led major legacy refactoring and migration [cite: 27]
-  "Node.js", // MERN stack and Udemy certification [cite: 43, 53]
+  "Node.js",
   "Express.js",
-  "MongoDB",
-
-  // Tier 3: Deployment, DevOps & Infrastructure
-  "AWS (EC2, S3, RDS, Lambda, CloudFront)", // Full development lifecycle [cite: 7, 16]
-  "Docker",
-  "GitHub Actions (CI/CD)",
-  "WebSockets", // Real-time team-admin chat and evaluation pipelines [cite: 42, 43]
-  "Redis / Caching",
-  "Hostinger", // Platform deployment and testing [cite: 16, 22]
-
-  // Tier 4: Front-End, Design & UI Implementation
   "JavaScript (ES6+)",
   "TypeScript",
-  "Tailwind CSS",
+  "MySQL",
+  "MongoDB",
+  "RESTful API Development",
+
   "Vue.js",
   "Inertia.js",
+  "Tailwind CSS",
   "Bootstrap 5",
-  "Adobe XD to Code",
-  "Material UI",
 
-  // Tier 5: Tools & Professional Workflow
+  "Stripe (Payment Gateway)",
+  "Google Maps API",
+  "Firebase",
+  "AWS (EC2, S3, RDS, Lambda, CloudFront)",
+
+  "Docker",
+  "Redis / Caching",
+  "GitHub Actions (CI/CD)",
+  "WebSockets",
+
   "Git / GitHub",
-  "Agile / Scrum", // Experience in solo and agile environments [cite: 26]
+  "Agile / Scrum",
   "Postman",
-  "Firebase", // Real-time travel admin panel [cite: 38]
-  "SMTP / API Email",
-  "Composer / NPM",
 ];
 const projectsData = {
   submittly: {
@@ -89,8 +76,8 @@ const projectsData = {
     tech: "Laravel, PHP, MySQL, MVC Architecture",
     image: "./projects/wapda.png",
     details: [
-      "Built a comprehensive large-scale housing society platform with 9+ modules including gate pass management, HR, employee records, land records, and vehicle management — handling 300k–500k gate pass transactions per month",
-      "Refactored and optimized legacy codebases, reducing page load time by 30% through aggressive database query optimization and backend performance improvements.",
+      "Built a large-scale housing society platform with 9+ modules including gate pass management, HR, employee, land records, and vehicle management — handling 100k–150k gate pass transactions monthly",
+      "Refactored legacy codebases, reducing page load time by 30% through backend performance improvements.",
       "Migrated legacy codebases from Laravel 6 to Laravel 9 for improved security and maintainability",
     ],
   },
@@ -131,7 +118,6 @@ const projectsData = {
     link: "https://al-haajbundookhan.com",
     details: [
       "Engineered a seamless real-time order management workflow to synchronize kitchen production with customer delivery and pickup requests.",
-      "Developed a high-traffic online ordering system that digitizes the restaurant’s menu and streamlines front-of-house operations.",
     ],
   },
   musafir: {
@@ -141,7 +127,6 @@ const projectsData = {
     link: "https://cgit.pk/musafir",
     details: [
       "Developed a high-speed traveling app admin panel using JavaScript and Firebase for real-time data synchronization and user management",
-      "Engineered a dynamic booking dashboard, enabling instant updates to travel packages and live customer support.",
     ],
   },
   pos: {
@@ -160,9 +145,7 @@ const projectsData = {
     tech: "Web Design, Adobe XD to Code",
     image: "./projects/zaba.png",
     details: [
-      "Designed and developed the API for a mobile e-commerce platform featuring a custom bidding and auction system.",
-      "Integrated multiple payment gateways and secure user authentication methods.",
-      "Engineered the bidding logic to handle simultaneous, real time bid placements.",
+      "Converted an Adobe XD design into a fully responsive front-end using HTML, Bootstrap, and JavaScript — pixel-perfect handoff from design to code.",
     ],
   },
 };
@@ -210,9 +193,17 @@ const renderSkills = () => {
 };
 const getActionMarkup = (id, link) => {
   if (id === "adobe")
-    return `<div class="badge-base"><span class="text-[10px] font-bold uppercase">Design</span></div>`;
+    return `<div class="flex-shrink-0 flex items-center gap-1 px-2 py-0.5 rounded-full bg-gray-800 border border-gray-600 text-gray-400">
+      <span class="text-[10px]  tracking-wider">Design</span>
+    </div>`;
   if (!link)
-    return `<div class="badge-base"><svg class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"/></svg><span class="text-[10px] font-bold uppercase">Private</span></div>`;
+    return `<div class="flex-shrink-0 flex items-center gap-1 px-2 py-0.5 rounded-full bg-gray-800 border border-gray-600 text-gray-400" title="Private Project">
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400">
+      <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+    </svg>
+      <span class="text-[10px] ">Private</span>
+    </div>`;
   return `<a href="${link}" target="_blank" class="text-gray-400 hover:text-accent-purple transition-colors p-1 external-link"><svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>`;
 };
 
@@ -225,9 +216,13 @@ const renderProjects = () => {
       <div class="h-40 bg-gray-700 rounded-lg mb-4 overflow-hidden flex items-center justify-center">
         <img src="${project.image}" loading="lazy" class="h-full w-full object-cover group-hover:scale-105 transition duration-500" alt="${project.title}">
       </div>
-      <div class="flex items-center justify-between mb-1">
-        <h4 class="text-xl font-semibold group-hover:text-accent-purple transition truncate mr-2">${project.title.split(" - ")[0]}</h4>
-        ${getActionMarkup(id, project.link)}
+      <div class="flex items-start justify-between gap-2 mb-1">
+        <h4 class="text-xl font-semibold group-hover:text-accent-purple transition truncate">${project.title.split(" - ")[0]}</h4>
+        <div class="flex-shrink-0 flex items-center pt-1">
+          ${getActionMarkup(id, project.link)}
+        </div>
+        
+        
       </div>
       <p class="text-sm text-gray-400 line-clamp-1">${project.tech}</p>
     </div>
@@ -246,12 +241,16 @@ const toggleModal = (show = false, projectId = null) => {
     dom.mProjLink.href = project.link || "#";
     dom.mImgLink.href = project.image;
 
-    dom.mDetails.innerHTML = project.details.map(detail => `
+    dom.mDetails.innerHTML = project.details
+      .map(
+        (detail) => `
       <p class="flex items-start">
-        <svg class="w-5 h-5 mr-3 mt-1 text-accent-purple flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.857a.75.75 0 00-1.214-.858L9 11.143l-1.643-1.643a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.06 0l4.5-4.5a.75.75 0 00.04-1.04z"/></svg>
+        <svg class="w-5 h-5 mr-3 mt-1 text-accent-purple flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.857a.75.75 0 00-1.214-.858L9 11.143l-1.643-1.643a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.06 0l4.5-4.5a.75.75 0 00.04-1.04z" clip-rule="evenodd"></path></svg>
         ${detail}
       </p>
-    `).join("");
+    `,
+      )
+      .join("");
 
     dom.modal.classList.remove("opacity-0", "pointer-events-none");
     dom.modalContent.classList.replace("scale-95", "scale-100");
@@ -265,7 +264,7 @@ const toggleModal = (show = false, projectId = null) => {
 dom.projects?.addEventListener("click", (e) => {
   const card = e.target.closest(".project-card");
   const isExternalLink = e.target.closest(".external-link");
-  
+
   if (card && !isExternalLink) {
     toggleModal(true, card.dataset.id);
   }
