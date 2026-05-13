@@ -34,7 +34,7 @@ const projectsData = {
     title: "Submittly - Automated content submission",
     tech: "MongoDB, Express.js, React.js, Node.js, WebSockets",
     image: "./projects/submittly.png",
-    link: "",
+
     details: [
       "Built a full-stack MERN application with role-based access across 3 user types.",
       "Integrated real-time team-admin chat via WebSockets",
@@ -46,7 +46,7 @@ const projectsData = {
     image: "./projects/zap.png",
     link: "https://dashboard.zappower.co",
     details: [
-      "Full-cycle Laravel backend serving 500–5,000 users via 60+ RESTful APIs.",
+      "Full-cycle Laravel backend serving 2000+ users via 85+ RESTful APIs.",
       " Integrated Stripe payment gateway for subscription billing and Google Maps API for real-time driver route tracking and delivery management.",
       "Designed and optimized database schemas to support high-volume transactional data across all platform module.",
     ],
@@ -67,8 +67,8 @@ const projectsData = {
     image: "./projects/exam360-lms.png",
     link: "https://e-learn.exam360.in/",
     details: [
-      "Built a scalable Learning Management System featuring a custom assessment engine and automated grading for seamless digital education.",
-      "Implemented role-based access control and performance analytics dashboards to track student progress and engagement in real-time.",
+      "Built a scalable Learning Management System featuring a custom assessment engine and seamless digital education.",
+      "Implemented role-based access control and dashboard to track student progress and engagement in real-time.",
     ],
   },
   wapdaCity: {
@@ -135,9 +135,8 @@ const projectsData = {
     image: "./projects/pos.png",
     link: "https://cgit.pk/pos/",
     details: [
-      "Designed and developed the API for a mobile e-commerce platform featuring a custom bidding and auction system.",
-      "Integrated multiple payment gateways and secure user authentication methods.",
-      "Engineered the bidding logic to handle simultaneous, real time bid placements.",
+      "Designed and developed a SaaS Point of Sale web application",
+      "Integrated financial reporting and inventory management system",
     ],
   },
   adobe: {
@@ -176,6 +175,7 @@ const dom = {
   mImage: document.getElementById("modal-image"),
   mImgLink: document.getElementById("image-link"),
   mProjLink: document.getElementById("modal-project-link"),
+  badgeContainer: document.getElementById("badge-container"),
 };
 
 //  UI Renderers
@@ -193,11 +193,11 @@ const renderSkills = () => {
 };
 const getActionMarkup = (id, link) => {
   if (id === "adobe")
-    return `<div class="flex-shrink-0 flex items-center gap-1 px-2 py-0.5 rounded-full bg-gray-800 border border-gray-600 text-gray-400">
+    return `<div class="flex-shrink-0 flex items-center gap-1 px-2 py-0.5 rounded-full bg-gray-800 border border-gray-600 text-gray-300">
       <span class="text-[10px]  tracking-wider">Design</span>
     </div>`;
   if (!link)
-    return `<div class="flex-shrink-0 flex items-center gap-1 px-2 py-0.5 rounded-full bg-gray-800 border border-gray-600 text-gray-400" title="Private Project">
+    return `<div class="flex-shrink-0 flex items-center gap-1 px-2 py-0.5 rounded-full bg-gray-800 border border-gray-600 text-gray-300" title="Private Project">
       <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400">
       <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
       <path d="M7 11V7a5 5 0 0 1 10 0v4" />
@@ -231,6 +231,18 @@ const renderProjects = () => {
     .join("");
 };
 
+function getPrivateBadgeHTML() {
+  return `
+    <div class="flex-shrink-0 flex items-center pt-1">
+      <div class="flex-shrink-0 flex items-center gap-1 px-4 py-0.5 rounded-full bg-gray-800 border border-gray-500 text-gray-300" title="Private Project">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400">
+          <rect width="18" height="11" x="3" y="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" />
+        </svg>
+        <span class="text-[14px]">Private</span>
+      </div>
+    </div>`;
+}
+
 //  Modal Logic
 const toggleModal = (show = false, projectId = null) => {
   if (show && projectId) {
@@ -238,7 +250,13 @@ const toggleModal = (show = false, projectId = null) => {
     dom.mTitle.textContent = project.title;
     dom.mSub.textContent = project.tech;
     dom.mImage.src = project.image;
-    dom.mProjLink.href = project.link || "#";
+    dom.mProjLink.href = project.link;
+
+    const isPrivate = !project.link;
+    dom.mProjLink.classList.toggle("hidden", isPrivate);
+    
+    dom.badgeContainer.innerHTML = isPrivate ? getPrivateBadgeHTML() : "";
+
     dom.mImgLink.href = project.image;
 
     dom.mDetails.innerHTML = project.details
