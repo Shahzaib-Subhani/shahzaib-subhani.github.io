@@ -34,7 +34,7 @@ const projectsData = {
     title: "Submittly - Automated content submission",
     tech: "MongoDB, Express.js, React.js, Node.js, WebSockets",
     image: "./projects/submittly.png",
-
+    link: "https://project-z4nuk.vercel.app/",
     details: [
       "Built a full-stack MERN application with role-based access across 3 user types.",
       "Integrated real-time team-admin chat via WebSockets",
